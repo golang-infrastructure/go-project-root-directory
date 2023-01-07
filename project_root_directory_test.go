@@ -19,3 +19,11 @@ func TestGetRootDirectory(t *testing.T) {
 	assert.Nil(t, err)
 	t.Log(directory)
 }
+
+func TestGetRootFilePath(t *testing.T) {
+	path, err := GetRootFilePath("go.mod")
+	assert.Nil(t, err)
+	t.Log(path)
+	// Output:
+	// D:\workspace\go-project-root-directory\go.mod
+}

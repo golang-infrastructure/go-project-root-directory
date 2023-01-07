@@ -7,13 +7,13 @@ import (
 
 func main() {
 
-	directory, err := project_root_directory.GetRootDirectory()
+	path, err := project_root_directory.GetRootFilePath("go.mod")
 	if err != nil {
 		fmt.Println(err.Error())
 		return
 	}
-	fmt.Println("项目根路径： " + directory)
+	fmt.Println(path)
 	// Output:
-	// 项目根路径： D:\workspace\go-project-root-directory
+	// D:\workspace\go-project-root-directory\go.mod
 
 }

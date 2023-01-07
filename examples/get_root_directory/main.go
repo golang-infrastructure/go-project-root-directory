@@ -1,15 +1,19 @@
-package test
+package main
 
 import (
+	"fmt"
 	project_root_directory "github.com/golang-infrastructure/go-project-root-directory"
-	"github.com/stretchr/testify/assert"
-	"testing"
 )
 
-func Test_foo(t *testing.T) {
+func main() {
+
 	directory, err := project_root_directory.GetRootDirectory()
-	assert.Nil(t, err)
-	t.Log(directory)
+	if err != nil {
+		fmt.Println(err.Error())
+		return
+	}
+	fmt.Println(directory)
 	// Output:
 	// D:\workspace\go-project-root-directory
+
 }

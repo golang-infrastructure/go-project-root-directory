@@ -27,6 +27,7 @@ func GetRootDirectory() (string, error) {
 	}
 }
 
+// GetSourceCodeRootDirectory 如果是从源代码运行的，则按此方式寻找项目的根目录
 func GetSourceCodeRootDirectory() (string, error) {
 	searchDirectory, err := os.Getwd()
 	if err != nil {
@@ -48,4 +49,22 @@ func GetSourceCodeRootDirectory() (string, error) {
 func GetExecutableRootDirectory() (string, error) {
 	// 对于可执行文件而言，其所在的路径就是项目的根目录
 	return os.Getwd()
+}
+
+// GetRootFilePath 返回根路径下的文件路径
+func GetRootFilePath(filename string) (string, error) {
+	directory, err := GetRootDirectory()
+	if err != nil {
+		return "", err
+	}
+	return filepath.Join(directory, filename), nil
+}
+
+// ReadRootFile 读取项目根目录下的文件
+func ReadRootFile(filename string) ([]byte, error) {
+	path, err := GetRootFilePath(filename)
+	if err != nil {
+		return nil, err
+	}
+	return os.ReadFile(path)
 }
