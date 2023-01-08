@@ -7,7 +7,7 @@
 # 二、安装
 
 ```bash
-go get -u https://github.com/golang-infrastructure/go-project-root-directory
+go get -u github.com/golang-infrastructure/go-project-root-directory
 ```
 
 # 三、示例
